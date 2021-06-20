@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const bcrypt = require('bcrypt')
 
+const port = process.env.PORT || 8000
+
 app.use(express.json());
 const users = [];
 app.get("/users", (req, res) => {
@@ -42,6 +44,6 @@ app.post('/users/login', async(req, res)=>{
         res.statue(500).send("error")
     }
 })
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("server running");
 });
